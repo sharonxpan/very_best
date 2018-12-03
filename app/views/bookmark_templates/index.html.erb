@@ -62,19 +62,31 @@
 
         <!-- Display bookmark.user_id start -->
         <td>
-          <%= bookmark.user.email %>
+          <% if bookmark.user.present? %>
+            <a href="/users/<%= bookmark.user.id %>">
+              <%= bookmark.user.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display bookmark.user_id end -->
 
         <!-- Display bookmark.venues_id start -->
         <td>
-          <%= bookmark.venues.cuisine %>
+          <% if bookmark.venues.present? %>
+            <a href="/venues/<%= bookmark.venues.id %>">
+              <%= bookmark.venues.cuisine %>
+            </a>
+          <% end %>
         </td>
         <!-- Display bookmark.venues_id end -->
 
         <!-- Display bookmark.dish_id start -->
         <td>
-          <%= bookmark.dish.name %>
+          <% if bookmark.dish.present? %>
+            <a href="/dishes/<%= bookmark.dish.id %>">
+              <%= bookmark.dish.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display bookmark.dish_id end -->
 
