@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_bookmark/:id_to_remove", { :controller => "bookmarks", :action => "destroy_row" })
+  get("/delete_bookmark_from_venues/:id_to_remove", { :controller => "bookmarks", :action => "destroy_row_from_venues" })
+  get("/delete_bookmark_from_dish/:id_to_remove", { :controller => "bookmarks", :action => "destroy_row_from_dish" })
+  get("/delete_bookmark_from_user/:id_to_remove", { :controller => "bookmarks", :action => "destroy_row_from_user" })
 
   #------------------------------
 
