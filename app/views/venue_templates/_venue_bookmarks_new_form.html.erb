@@ -1,29 +1,16 @@
-<!-- Form bookmark start -->
 <form action="/create_bookmark_from_venue" method="post">
-<!-- Form bookmark end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <input type="hidden" name="user_id" value="<%= current_user.id %>">
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for venues_id start -->
-  <!-- Input for venues_id start -->
   <input type="hidden" name="venues_id" value="<%= @venue.id %>">
-  <!-- Input for venues_id end -->
 
-  <!-- Label and input for dish_id start -->
   <div class="form-group">
     <label for="dish_id">
       Dish
     </label>
 
-    <!-- Input for dish_id start -->
     <%= select_tag(:dish_id, options_from_collection_for_select(Dish.all, :id, :name, @bookmark.dish_id), :class => "form-control") %>
-    <!-- Input for dish_id end -->
   </div>
-  <!-- Label and input for dish_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create bookmark
