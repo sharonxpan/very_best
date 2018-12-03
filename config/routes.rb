@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/bookmarks/new", { :controller => "bookmarks", :action => "new_form" })
   post("/create_bookmark", { :controller => "bookmarks", :action => "create_row" })
+  post("/create_bookmark_from_venue", { :controller => "bookmarks", :action => "create_row_from_venue" })
+  post("/create_bookmark_from_dish", { :controller => "bookmarks", :action => "create_row_from_dish" })
 
   # READ
   get("/bookmarks", { :controller => "bookmarks", :action => "index" })

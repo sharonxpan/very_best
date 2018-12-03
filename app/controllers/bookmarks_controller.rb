@@ -33,6 +33,38 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def create_row_from_dish
+    @bookmark = Bookmark.new
+
+    @bookmark.user_id = params.fetch("user_id")
+    @bookmark.venues_id = params.fetch("venues_id")
+    @bookmark.dish_id = params.fetch("dish_id")
+
+    if @bookmark.valid?
+      @bookmark.save
+
+      redirect_to("/dishes/#{@bookmark.dish_id}", notice: "Bookmark created successfully.")
+    else
+      render("bookmark_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_venue
+    @bookmark = Bookmark.new
+
+    @bookmark.user_id = params.fetch("user_id")
+    @bookmark.venues_id = params.fetch("venues_id")
+    @bookmark.dish_id = params.fetch("dish_id")
+
+    if @bookmark.valid?
+      @bookmark.save
+
+      redirect_to("/venues/#{@bookmark.venues_id}", notice: "Bookmark created successfully.")
+    else
+      render("bookmark_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @bookmark = Bookmark.find(params.fetch("prefill_with_id"))
 
